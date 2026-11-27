@@ -1,0 +1,223 @@
+:root {
+  --bg: var(--tg-theme-bg-color, #111318);
+  --surface: var(--tg-theme-secondary-bg-color, #1b1f27);
+  --text: var(--tg-theme-text-color, #f4f6fa);
+  --muted: var(--tg-theme-hint-color, #9aa3b2);
+  --accent: var(--tg-theme-button-color, #2ea6ff);
+  --accent-text: var(--tg-theme-button-text-color, #ffffff);
+  --border: rgba(255, 255, 255, 0.12);
+  --marked: rgba(46, 166, 255, 0.24);
+  --winning: rgba(46, 204, 113, 0.28);
+  --winning-border: #2ecc71;
+  --taken-bg: rgba(255, 255, 255, 0.04);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.stat-val {
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.call-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.last-call {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.called-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  max-height: 76px;
+  overflow-y: auto;
+}
+
+.chip {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.picker-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.card-num-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(46px, 1fr));
+  gap: 6px;
+  max-height: 210px;
+  overflow-y: auto;
+  padding: 4px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.num-btn {
+  padding: 8px 4px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.num-btn.selected {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+.num-btn:disabled {
+  background: var(--taken-bg);
+  color: var(--muted);
+  opacity: 0.45;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+button {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  padding: 9px 12px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: var(--bg);
+  color: var(--text);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.card-grid-wrap {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.bingo-hdr {
+  text-align: center;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 4px 0;
+  color: var(--accent);
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.cell.marked {
+  background: var(--marked);
+  border-color: var(--accent);
+}
+
+.cell.winning {
+  background: var(--winning);
+  border-color: var(--winning-border);
+}
+
+.status-msg {
+  min-height: 20px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.winner-box {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(46, 204, 113, 0.16);
+  border: 1px solid rgba(46, 204, 113, 0.45);
+  font-weight: 600;
+}
